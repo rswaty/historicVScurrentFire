@@ -1,14 +1,20 @@
-name: "historicVScurrentFire"
+name: historicVScurrentFire
 output_dir: ../docs
 navbar:
-  title: "historicVScurrentFire"
+  title: historicVScurrentFire
   left:
-  - text: Home
+  - text: Introduction
     href: index.html
+  - text: Historical Fire
+    href: historicalFire.html
   - text: About
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fab fa-github
+    text: Source code
+    href: https://github.com/rswaty/historicVScurrentFire
 output:
   workflowr::wflow_html:
     toc: yes
