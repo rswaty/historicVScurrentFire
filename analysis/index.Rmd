@@ -22,11 +22,11 @@ We developed this as an extension of our presentation at the [International Asso
 
 First a little background about our landscapes.
 
-## Little Missouri Grassland
+## Huron-Manistee National Forest
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae semper sem. Vivamus molestie tempus felis non porttitor. Vestibulum molestie mauris eget sem pellentesque cursus. Fusce eget eros sit amet ipsum aliquam pharetra. Ut at sem mi. Donec dignissim libero suscipit, viverra diam eu, elementum nisl.
 
 ```{r lmngr map, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("LMRNG.jpg")
+knitr::include_graphics("assets/hmnf.jpg", error = FALSE)
 ```
 
 ## Okefenokee Swamp
@@ -34,7 +34,7 @@ Sed tellus sem, condimentum sed blandit non, consectetur vel felis. Pellentesque
 
 
 ```{r ok map, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("OK.jpg")
+knitr::include_graphics("assets/OK.jpg", error = FALSE)
 ```
 
 
