@@ -1,0 +1,208 @@
+---
+title: "Okefenokee Swamp"
+author: "The Nature Conservancy's LANDFIRE team"
+date: "2022-03-15"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r packages, message=FALSE, warning=FALSE, include=FALSE}
+# install packages
+library(downloadthis)
+library(plotly)
+library(scales)
+library(stringr)
+library(tidyverse)
+
+# load raw data
+ok <- read_csv("data/ok_cmbn.csv")
+
+```
+
+
+
+## Okefenokee Swamp
+The Okefenokee Swamp is technically a ~440,000 acre wetland that crosses the Georgia-Florida border.  We defined the area as a combination of US Fish and Wildlife, State forest, State wildlife management area and US Forest Service land that covers the actual wetlands plus the surrounding protected area.  In total our area of interest adds up to ~704k acres. 
+
+
+
+```{r lmngr map, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("assets/ok.jpg", error = FALSE)
+```
+
+<br>
+
+***
+
+## 3 ecosystems covered >90% of the landscape historically
+
+LANDFIRE data is designed for use over large areas.  It's a good idea to review initial outputs before proceeding.  For example here we want to see which Biophysical Settings (BpSs, historical ecosystems mapped by LANDFIRE) were most prevalent before we go to calculate historical fire regimes.
+
+We found:
+
+* LANDFIRE mapped 16 BpSs
+* 3 BpSs covered ~94% of the landscape historically
+* Gulf and Atlantic Coastal Plain Swamp Systems covered ~65% of the area
+
+<br>
+
+```{r bpsWrangle, echo=FALSE, message=FALSE, warning=FALSE}
+ok_bps <- ok %>%
+  select(3, 12:17) %>%
+  group_by(BPS_NAME,
+           FRI_REPLAC,
+           FRI_MIXED,
+           FRI_SURFAC,
+           FRI_ALLFIR,
+           BPS_MODEL) %>%
+  summarise(groupedCount = sum(Count)) %>%
+  arrange(desc(groupedCount)) %>%
+  mutate(ACRES = (groupedCount*0.222)) %>%
+  pivot_longer(cols = 2:5,
+               names_to = "fireType",
+               values_to = "returnInterval") %>%
+  mutate(annualProb = (1/returnInterval),
+         annualAcres = (annualProb*ACRES),
+         percentAnnual = ((annualAcres/ACRES)*100)
+         ) %>%
+  filter(BPS_NAME != "Open Water",
+         BPS_NAME != "Barren-Rock/Sand/Clay")
+
+
+
+write.csv(ok_bps, file = "ok_fire.csv")
+
+```
+
+```{r okBpsChart, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=12, fig.height=14}
+
+ok_bps$shortName <- str_wrap(ok_bps$BPS_NAME, width = 30)
+
+okBpsChart <-
+  ggplot(ok_bps, aes(y = ACRES, x = reorder(shortName, -ACRES))) +
+  geom_bar(stat = "identity", fill = "#415a78") +
+  coord_flip() +
+  labs(
+    caption = "Data from landfire.gov-Biophysical Settings.",
+    x = "",
+    y = "Acres",
+    fill = "Status") +
+  scale_x_discrete(limits=rev)  +
+	scale_y_continuous(labels = comma) + 
+  theme_bw(base_size = 20) + 
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot")
+
+
+okBpsChart
+```
+
+<br>
+
+***
+
+
+
+## How much area burned annually prior to European settlement?
+
+ <font size="6"> 134,458 acres </font>
+ 
+We found that the there was substantial amounts of fire in some key BpSs:
+
+* The East Gulf Coastal Plain Interior Upland Longleaf Pine Woodland had a 3 year return interval for surface fires, and burned > 51k acres each year on average.
+* LANDFIRE models estimated that 11 of the 16 BpSs had at least some amount of fire each year, with almost all fires being of the surface type
+
+```{r fireChart, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=12, fig.height=10}
+
+ok_bpsNoALL <- ok_bps %>%
+  filter(fireType %in% c("FRI_REPLAC",
+                         "FRI_MIXED",
+                         "FRI_SURFAC")) 
+
+
+annualFireChart_ok <- ok_bpsNoALL %>%
+  ggplot(aes(fill=(fireType), y=annualAcres, x=reorder(BPS_NAME, ACRES))) + 
+  geom_bar(position="stack", stat="identity") +
+  coord_flip() +
+	scale_y_continuous(labels = comma) + 
+  labs(
+    title = "Historical annual acres burned per BpS",
+    subtitle = "Split out by fire type; most common types at the top",
+    caption = "Data from landfire.gov.",
+    x = "",
+    y = "Acres")+
+  theme_bw(base_size = 20)+ 
+  theme(legend.position = c(0.8, 0.2)) +
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot") +
+  scale_fill_manual(values = c("#AA3377" , #ALL
+                               "#b57805", #MIXED
+                               "#8a8978", #REPLACEMENT
+                               "#d6d25c"), # SURFACE
+                    name = "Fire Type", 
+                    labels = c("Mixed",
+                               "Replacement",
+                              "Surface"))
+
+annualFireChart_ok
+
+```
+
+
+
+## How much fire is there today?
+
+ <font size="6"> 69,132 acres (on average) </font>
+ 
+```{r wrangleCurrent, message=FALSE, warning=FALSE, include=FALSE}
+okdist <- read_csv("data/DIST99to16CONUS_OK.csv")
+
+##REMOVE DIST TYPE = NA VALUES FROM THE CSV
+#create a table w/ only fire types
+okdist_fire <- okdist %>%
+  drop_na(DIST_TYPE)%>%
+  filter(DIST_TYPE %in% c("Prescribed Fire",
+                          "Wildfire",
+                          "Wildland Fire", "Wildland Fire Use"))
+```
+ 
+```{r currentChart, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=12, fig.height=9}
+ok_current_plot <-
+ggplot(okdist_fire, aes(x = YEAR, y = ACRES, fill = DIST_TYPE)) +
+  geom_bar(position="stack", stat="identity") +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title = "Okefenokee current annual acres burned, 1999-2016",
+    subtitle = "Split out by fire type",
+    caption = "Data from landfire.gov.",
+    x = "Year",
+    y = "Acres")+
+  theme_bw(base_size = 20)+
+  theme(legend.position = c(.2, .85)) +
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot") +
+  scale_fill_manual(values = c("#fee391",  #rx fire
+                               "#fe9929",  # wildfire
+                               "#993404", #wildland fire
+                               "#4a3602"),       # wildland fire use
+                    name = "Fire Type",
+                    labels = c("Prescribed",
+                               "Wildfire",
+                               "Wildland fire",
+                               "Wildland fire use")) +
+  theme(legend.background = element_rect(fill="white",
+                                  size=0.5, linetype="solid", 
+                                  colour ="grey16"))
+
+ok_current_plot
+```
+
+
+
+
+

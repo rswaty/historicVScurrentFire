@@ -5,12 +5,12 @@ navbar:
   left:
   - text: Introduction
     href: index.html
-  - text: Historical Fire
-    href: historicalFire.html
+  - text: Huron-Manistee
+    href: huronManistee.html
+  - text: Okefenokee
+    href:  okSwamp.html
   - text: About
     href: about.html
-  - text: License
-    href: license.html
   right:
   - icon: fab fa-github
     text: Source code

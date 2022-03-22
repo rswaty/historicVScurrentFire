@@ -1,0 +1,280 @@
+---
+title: "Huron-Manistee National Forest"
+author: "The Nature Conservancy's LANDFIRE Team"
+date: "2022-03-15"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r packages, message=FALSE, warning=FALSE, include=FALSE}
+# install packages
+library(downloadthis)
+library(plotly)
+library(scales)
+library(stringr)
+library(tidyverse)
+
+
+# load raw data
+hmnf <- read_csv("data/hmnf2_cmbn.csv")
+
+```
+
+
+
+## Huron-Manistee National Forest
+The Huron-Manistee National Forest is ~1 million acres and is in the lower peninsula of Michigan.  The forest is home to wild and scenic rivers such as the Pine, Manistee and Pere Marquette, and rare species such as Kirtland's warbler, Karner Blue Butterfly and Pitcher's thistle. 
+
+```{r lmngr map, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("assets/hmnf.jpg", error = FALSE)
+```
+
+<br>
+
+***
+
+## 5 ecosystems covered ~90% of the landscape historically
+
+LANDFIRE data is designed for use over large areas.  It's a good idea to review initial outputs before proceeding.  For example here we want to see which Biophysical Settings (BpSs, historical ecosystems mapped by LANDFIRE) were most prevalent before we go to calculate historical fire regimes.
+
+We found:
+
+* LANDFIRE mapped 20 BpSs
+* 5 BpSs covered ~90% of the landscape historically
+* This pattern of a relativity low number of BpSs dominating a landscape is typical in our experience
+
+<br>
+
+```{r bpsWrangle, echo=FALSE, message=FALSE, warning=FALSE}
+hmnf_bps <- hmnf %>%
+  select(3, 12:17) %>%
+  group_by(BPS_NAME,
+           FRI_REPLAC,
+           FRI_MIXED,
+           FRI_SURFAC,
+           FRI_ALLFIR,
+           BPS_MODEL) %>%
+  summarise(groupedCount = sum(COUNT)) %>%
+  arrange(desc(groupedCount)) %>%
+  mutate(ACRES = (groupedCount*0.222)) %>%
+  pivot_longer(cols = 2:5,
+               names_to = "fireType",
+               values_to = "returnInterval") %>%
+  mutate(annualProb = (1/returnInterval),
+         annualAcres = (annualProb*ACRES),
+         percentAnnual = ((annualAcres/ACRES)*100)
+         ) %>%
+  filter(BPS_NAME != "Open Water",
+         BPS_NAME != "Barren-Rock/Sand/Clay")
+
+
+
+write.csv(hmnf_bps, file = "hmnf_fire.csv")
+
+```
+
+```{r bpsChart, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=12, fig.height=14}
+
+hmnf_bps$shortName <- str_wrap(hmnf_bps$BPS_NAME, width = 30)
+
+hmnfBpsChart <-
+  ggplot(hmnf_bps, aes(y = ACRES, x = reorder(shortName, -ACRES))) +
+  geom_bar(stat = "identity", fill = "#268754") +
+  coord_flip() +
+  labs(
+    caption = "Data from landfire.gov-Biophysical Settings.",
+    x = "",
+    y = "Acres",
+    fill = "Status") +
+  scale_x_discrete(limits=rev)  +
+	scale_y_continuous(labels = comma) + 
+  theme_bw(base_size = 20) + 
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot")
+
+
+hmnfBpsChart
+```
+
+<br>
+
+***
+
+
+## How much area burned annually prior to European settlement?
+
+ <font size="6"> 81,031 acres </font>
+ 
+ We found that the there was substantial amounts of fire in some key BpSs:
+ 
+ * The Laurentian Pine-Oak Barrens had the most fire historically, with ~ 58k acres of fire each year historically, or about 22% of this ecosystem.
+ * Almost all fires in the Huron-Manistee NF were modeled as "surface" fires, with less than 25% top-kill.  
+
+```{r fireChart, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=12, fig.height=10}
+
+hmnf_bpsNoALL <- hmnf_bps %>%
+  filter(fireType %in% c("FRI_REPLAC",
+                         "FRI_MIXED",
+                         "FRI_SURFAC")) 
+
+
+annualFireChart_hmnf <- hmnf_bpsNoALL %>%
+  ggplot(aes(fill=(fireType), y=annualAcres, x=reorder(BPS_NAME, ACRES))) + 
+  geom_bar(position="stack", stat="identity") +
+  coord_flip() +
+	scale_y_continuous(labels = comma) + 
+  labs(
+    title = "Historical annual acres burned per BpS",
+    subtitle = "Split out by fire type; most common types at the top",
+    caption = "Data from landfire.gov.",
+    x = "",
+    y = "Acres")+
+  theme_bw(base_size = 20)+ 
+  theme(legend.position = c(0.8, 0.2)) +
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot") +
+  scale_fill_manual(values = c("#AA3377" , #ALL
+                               "#b57805", #MIXED
+                               "#8a8978", #REPLACEMENT
+                               "#d6d25c"), # SURFACE
+                    name = "Fire Type", 
+                    labels = c("Mixed",
+                               "Replacement",
+                              "Surface"))
+
+annualFireChart_hmnf
+
+```
+
+
+## How much fire is there today?
+
+ <font size="6"> 3,967 acres (on average) </font>
+ 
+```{r wrangleCurrent, message=FALSE, warning=FALSE, include=FALSE}
+hmdist <- read_csv("data/DIST99to16CONUS_HM.csv")
+
+##REMOVE DIST TYPE = NA VALUES FROM THE CSV
+#create a table w/ only fire types
+hmdist_fire <- hmdist %>%
+  drop_na(DIST_TYPE)%>%
+  filter(DIST_TYPE %in% c("Prescribed Fire",
+                          "Wildfire",
+                          "Wildland Fire", "Wildland Fire Use"))
+```
+ 
+```{r currentChart, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=12, fig.height=9}
+hmnf_current_plot <-
+ggplot(hmdist_fire, aes(x = YEAR, y = ACRES, fill = DIST_TYPE)) +
+  geom_bar(position="stack", stat="identity") +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title = "Huron-Manistee N. F. current annual acres burned, 1999-2016",
+    subtitle = "Split out by fire type",
+    caption = "Data from landfire.gov.",
+    x = "Year",
+    y = "Acres")+
+  theme_bw(base_size = 20)+
+  theme(legend.position = c(.2, .85)) +
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot") +
+  scale_fill_manual(values = c("#fee391",  #rx fire
+                               "#fe9929",  # wildfire
+                               "#993404"), #fire use
+                    name = "Fire Type",
+                    labels = c("Prescribed",
+                               "Wildfire",
+                               "Wildland fire use")) +
+  theme(legend.background = element_rect(fill="white",
+                                  size=0.5, linetype="solid", 
+                                  colour ="grey16"))
+
+hmnf_current_plot
+```
+
+
+## Fire across time-a dramatization
+
+Looking at historical amounts of fire can help put today's fires in ecological context.  In the animation below we took the modeled historical values and assumed a little bit of variation until ~1920 when we assumed fire suppression started.  The values from 1800-1999 are purely assumed with no modeling or real data.  We do believe the trends indicated are realistic and highlight the dramatic change in fire regimes across the Huron-Manistee National Forest
+
+<br>
+
+
+```{r animatedPlotly, echo=FALSE, message=FALSE, warning=FALSE, fig.align='left', fig.width=12, fig.height=7}
+# insert choroMap.html URL
+htmltools::tags$iframe(title = "My embedded document", src = "fireDrama.html", frameborder = "1", width = "90%", height="700", vspace="30")
+
+```
+<br>
+
+<br>
+
+## Methods and datasets
+
+The combined data has information we do not need and is not formatted properly to explore historical fire regimes for our landscape.  
+
+**Raw data available here:**
+
+```{r hmnf raw, echo=FALSE, message=FALSE, warning=FALSE}
+hmnf %>%
+  download_this(
+    output_name = "Raw combined data for Huron-Manistee NF",
+    output_extension = ".csv",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
+<br>
+
+We did some wrangling.  Hit the "Code" button at the top-right of the page to see the code.
+
+<br>
+
+```{r bpsWrangle2, echo=FALSE, message=FALSE, warning=FALSE}
+hmnf_bps <- hmnf %>%
+  select(3, 12:17) %>%
+  group_by(BPS_NAME,
+           FRI_REPLAC,
+           FRI_MIXED,
+           FRI_SURFAC,
+           FRI_ALLFIR,
+           BPS_MODEL) %>%
+  summarise(groupedCount = sum(COUNT)) %>%
+  arrange(desc(groupedCount)) %>%
+  mutate(ACRES = (groupedCount*0.222)) %>%
+  pivot_longer(cols = 2:5,
+               names_to = "fireType",
+               values_to = "returnInterval") %>%
+  mutate(annualProb = (1/returnInterval),
+         annualAcres = (annualProb*ACRES),
+         percentAnnual = ((annualAcres/ACRES)*100)
+         ) 
+
+
+
+write.csv(hmnf_bps, file = "hmnf_fire.csv")
+
+```
+
+**Wrangled data available here:**
+
+```{r hmnf wrangled, echo=FALSE, message=FALSE, warning=FALSE}
+hmnf_bps %>%
+  download_this(
+    output_name = "Wrangled Huron-Manistee Historical Data",
+    output_extension = ".csv",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save"
+  )
+```
+
