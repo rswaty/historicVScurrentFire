@@ -1,0 +1,432 @@
+YEAR,DIST_TYPE,SEVERITY,sumcount,ACRES
+1999,Chemical,Low,368,81.841176
+1999,Clearcut,High,337,74.9469465
+1999,Clearcut,Low,7548,1678.633686
+1999,Clearcut,Medium,5933,1319.466569
+1999,Harvest,High,32,7.116624
+1999,Harvest,Low,3184,708.104088
+1999,Harvest,Medium,1188,264.204666
+1999,Other Mechanical,High,39,8.6733855
+1999,Other Mechanical,Low,2838,631.155591
+1999,Other Mechanical,Medium,544,120.982608
+1999,Prescribed Fire,Low,1096,243.744372
+1999,Prescribed Fire,Medium,19,4.2254955
+1999,Thinning,High,79,17.5691655
+1999,Thinning,Low,17977,3997.985927
+1999,Thinning,Medium,1093,243.0771885
+1999,Unknown,High,211,46.9252395
+1999,Unknown,Low,379,84.2875155
+1999,Unknown,Medium,4247,944.5094415
+1999,Wildland Fire,High,2249,500.1652305
+1999,Wildland Fire,Low,760,169.01982
+1999,Wildland Fire,Medium,2135,474.8122575
+2000,Chemical,Low,1238,275.324391
+2000,Clearcut,High,213,47.3700285
+2000,Clearcut,Low,4111,914.2637895
+2000,Clearcut,Medium,5611,1247.85554
+2000,Harvest,High,23,5.1150735
+2000,Harvest,Low,3467,771.0417315
+2000,Harvest,Medium,968,215.277876
+2000,Other Mechanical,High,8,1.779156
+2000,Other Mechanical,Low,3355,746.1335475
+2000,Other Mechanical,Medium,731,162.5703795
+2000,Prescribed Fire,Low,2616,581.784012
+2000,Prescribed Fire,Medium,68,15.122826
+2000,Thinning,High,16,3.558312
+2000,Thinning,Low,15402,3425.320089
+2000,Thinning,Medium,1023,227.5095735
+2000,Unknown,High,53,11.7869085
+2000,Unknown,Low,839,186.5889855
+2000,Unknown,Medium,6411,1425.77114
+2000,Wildfire,High,7181,1597.014905
+2000,Wildfire,Increased Green,59,13.1212755
+2000,Wildfire,Low,4354,968.305653
+2000,Wildfire,Medium,5422,1205.822979
+2000,Wildfire,Unburned/Low,3822,849.991779
+2000,Wildland Fire,High,20,4.44789
+2000,Wildland Fire,Low,3059,680.3047755
+2000,Wildland Fire,Medium,1234,274.434813
+2001,Clearcut,High,806,179.249967
+2001,Clearcut,Low,3718,826.862751
+2001,Clearcut,Medium,4812,1070.162334
+2001,Harvest,High,52,11.564514
+2001,Harvest,Low,2545,565.9940025
+2001,Harvest,Medium,1404,312.241878
+2001,Other Mechanical,High,144,32.024808
+2001,Other Mechanical,Low,3573,794.6155485
+2001,Other Mechanical,Medium,935,207.9388575
+2001,Prescribed Fire,Low,1613,358.7223285
+2001,Prescribed Fire,Medium,105,23.3514225
+2001,Thinning,High,1,0.2223945
+2001,Thinning,Low,10989,2443.893161
+2001,Thinning,Medium,469,104.3030205
+2001,Unknown,High,54,12.009303
+2001,Unknown,Low,298,66.273561
+2001,Unknown,Medium,2718,604.468251
+2001,Wildland Fire,High,34,7.561413
+2001,Wildland Fire,Low,195,43.3669275
+2001,Wildland Fire,Medium,226,50.261157
+2002,Clearcut,High,245,54.4866525
+2002,Clearcut,Low,3185,708.3264825
+2002,Clearcut,Medium,2132,474.145074
+2002,Harvest,High,1,0.2223945
+2002,Harvest,Low,1658,368.730081
+2002,Harvest,Medium,425,94.5176625
+2002,Other Mechanical,Low,2367,526.4077815
+2002,Other Mechanical,Medium,710,157.900095
+2002,Prescribed Fire,High,281,62.4928545
+2002,Prescribed Fire,Low,1658,368.730081
+2002,Prescribed Fire,Medium,1260,280.21707
+2002,Thinning,High,81,18.0139545
+2002,Thinning,Low,8423,1873.228874
+2002,Thinning,Medium,1394,310.017933
+2002,Unknown,High,137,30.4680465
+2002,Unknown,Low,251,55.8210195
+2002,Unknown,Medium,1805,401.4220725
+2002,Wildfire,Low,322,71.611029
+2002,Wildland Fire,Low,171,38.0294595
+2002,Wildland Fire,Medium,31,6.8942295
+2003,Clearcut,High,319,70.9438455
+2003,Clearcut,Low,802,178.360389
+2003,Clearcut,Medium,2728,606.692196
+2003,Harvest,High,235,52.2627075
+2003,Harvest,Low,513,114.0883785
+2003,Harvest,Medium,483,107.4165435
+2003,Other Mechanical,High,9,2.0015505
+2003,Other Mechanical,Low,4868,1082.616426
+2003,Other Mechanical,Medium,774,172.133343
+2003,Prescribed Fire,High,154,34.248753
+2003,Prescribed Fire,Low,1799,400.0877055
+2003,Prescribed Fire,Medium,357,79.3948365
+2003,Thinning,High,58,12.898881
+2003,Thinning,Low,6800,1512.2826
+2003,Thinning,Medium,1152,256.198464
+2003,Unknown,High,87,19.3483215
+2003,Unknown,Low,51,11.3421195
+2003,Unknown,Medium,1262,280.661859
+2003,Wildfire,Low,1394,310.017933
+2003,Wildfire,Medium,257,57.1553865
+2003,Wildfire,Unburned/Low,220,48.92679
+2003,Wildland Fire,High,355,78.9500475
+2003,Wildland Fire,Low,1901,422.7719445
+2003,Wildland Fire,Medium,1382,307.349199
+2004,Clearcut,High,108,24.018606
+2004,Clearcut,Low,1824,405.647568
+2004,Clearcut,Medium,8024,1784.493468
+2004,Harvest,High,2,0.444789
+2004,Harvest,Low,638,141.887691
+2004,Harvest,Medium,478,106.304571
+2004,Other Mechanical,High,31,6.8942295
+2004,Other Mechanical,Low,3669,815.9654205
+2004,Other Mechanical,Medium,682,151.673049
+2004,Prescribed Fire,High,103,22.9066335
+2004,Prescribed Fire,Low,5850,1301.007825
+2004,Prescribed Fire,Medium,63,14.0108535
+2004,Thinning,High,31,6.8942295
+2004,Thinning,Low,6925,1540.081913
+2004,Thinning,Medium,1999,444.5666055
+2004,Unknown,High,53,11.7869085
+2004,Unknown,Low,152,33.803964
+2004,Unknown,Medium,4482,996.772149
+2005,Clearcut,High,152,33.803964
+2005,Clearcut,Low,1995,443.6770275
+2005,Clearcut,Medium,4913,1092.624179
+2005,Harvest,High,12,2.668734
+2005,Harvest,Low,521,115.8675345
+2005,Harvest,Medium,824,183.253068
+2005,Other Mechanical,High,548,121.872186
+2005,Other Mechanical,Low,2035,452.5728075
+2005,Other Mechanical,Medium,2323,516.6224235
+2005,Prescribed Fire,Low,561,124.7633145
+2005,Prescribed Fire,Medium,279,62.0480655
+2005,Thinning,High,14,3.113523
+2005,Thinning,Low,7349,1634.377181
+2005,Thinning,Medium,1126,250.416207
+2005,Unknown,High,56,12.454092
+2005,Unknown,Low,661,147.0027645
+2005,Unknown,Medium,4620,1027.46259
+2006,Clearcut,High,258,57.377781
+2006,Clearcut,Low,789,175.4692605
+2006,Clearcut,Medium,4796,1066.604022
+2006,Development,Low,27,6.0046515
+2006,Development,Medium,26,5.782257
+2006,Harvest,High,91,20.2378995
+2006,Harvest,Low,654,145.446003
+2006,Harvest,Medium,112,24.908184
+2006,Herbicide,Low,33,7.3390185
+2006,Other Mechanical,High,25,5.5598625
+2006,Other Mechanical,Low,1643,365.3941635
+2006,Other Mechanical,Medium,1246,277.103547
+2006,Prescribed Fire,High,200,44.4789
+2006,Prescribed Fire,Low,3025,672.7433625
+2006,Prescribed Fire,Medium,1135,252.4177575
+2006,Thinning,High,115,25.5753675
+2006,Thinning,Low,5388,1198.261566
+2006,Thinning,Medium,1093,243.0771885
+2006,Unknown,High,175,38.9190375
+2006,Unknown,Low,197,43.8117165
+2006,Unknown,Medium,4104,912.707028
+2006,Wildfire,High,6907,1536.078812
+2006,Wildfire,Increased Green,740,164.57193
+2006,Wildfire,Low,6502,1446.009039
+2006,Wildfire,Medium,7262,1615.028859
+2006,Wildfire,Unburned/Low,3206,712.996767
+2006,Wildland Fire,High,15,3.3359175
+2006,Wildland Fire,Low,188,41.810166
+2006,Wildland Fire,Medium,21,4.6702845
+2007,Chemical,Low,296,65.828772
+2007,Clearcut,High,216,48.037212
+2007,Clearcut,Low,891,198.1534995
+2007,Clearcut,Medium,2405,534.8587725
+2007,Harvest,Low,1412,314.021034
+2007,Harvest,Medium,186,41.365377
+2007,Herbicide,Low,33,7.3390185
+2007,Other Mechanical,High,150,33.359175
+2007,Other Mechanical,Low,4673,1039.249499
+2007,Other Mechanical,Medium,3515,781.7166675
+2007,Prescribed Fire,High,225,50.0387625
+2007,Prescribed Fire,Low,7471,1661.50931
+2007,Prescribed Fire,Medium,2527,561.9909015
+2007,Thinning,High,6,1.334367
+2007,Thinning,Low,1857,412.9865865
+2007,Thinning,Medium,702,156.120939
+2007,Unknown,High,65,14.4556425
+2007,Unknown,Low,171,38.0294595
+2007,Unknown,Medium,4356,968.750442
+2007,Wildfire,High,1268,281.996226
+2007,Wildfire,Low,347,77.1708915
+2007,Wildfire,Medium,353,78.5052585
+2007,Wildfire,Unburned/Low,297,66.0511665
+2007,Wildland Fire,Low,88,19.570716
+2007,Wildland Fire,Medium,32,7.116624
+2008,Biological,Low,6,1.334367
+2008,Chemical,Low,456,101.411892
+2008,Clearcut,High,2128,473.255496
+2008,Clearcut,Low,938,208.606041
+2008,Clearcut,Medium,650,144.556425
+2008,Harvest,High,229,50.9283405
+2008,Harvest,Low,1474,327.809493
+2008,Harvest,Medium,287,63.8272215
+2008,Herbicide,Low,33,7.3390185
+2008,Other Mechanical,High,583,129.6559935
+2008,Other Mechanical,Low,10178,2263.531221
+2008,Other Mechanical,Medium,510,113.421195
+2008,Prescribed Fire,High,1351,300.4549695
+2008,Prescribed Fire,Low,17310,3849.648795
+2008,Prescribed Fire,Medium,1951,433.8916695
+2008,Thinning,High,49,10.8973305
+2008,Thinning,Low,4775,1061.933738
+2008,Thinning,Medium,318,70.721451
+2008,Unknown,High,3490,776.156805
+2008,Unknown,Low,1596,354.941622
+2008,Unknown,Medium,760,169.01982
+2008,Wildland Fire,High,3,0.6671835
+2008,Wildland Fire,Low,74,16.457193
+2008,Wildland Fire,Medium,9,2.0015505
+2009,Biological,Low,6,1.334367
+2009,Chemical,Low,866,192.593637
+2009,Clearcut,High,518,115.200351
+2009,Clearcut,Low,1560,346.93542
+2009,Clearcut,Medium,436,96.964002
+2009,Harvest,High,88,19.570716
+2009,Harvest,Low,614,136.550223
+2009,Harvest,Medium,115,25.5753675
+2009,Herbicide,Low,116,25.797762
+2009,Mastication,High,10,2.223945
+2009,Mastication,Low,1138,253.084941
+2009,Mastication,Medium,22,4.892679
+2009,Other Mechanical,High,2903,645.6112335
+2009,Other Mechanical,Low,15054,3347.926803
+2009,Other Mechanical,Medium,2346,521.737497
+2009,Prescribed Fire,High,963,214.1659035
+2009,Prescribed Fire,Low,12768,2839.532976
+2009,Prescribed Fire,Medium,1784,396.751788
+2009,Thinning,High,91,20.2378995
+2009,Thinning,Low,6104,1357.496028
+2009,Thinning,Medium,421,93.6280845
+2009,Unknown,High,435,96.7416075
+2009,Unknown,Low,2142,476.369019
+2009,Unknown,Medium,245,54.4866525
+2010,Chemical,Low,629,139.8861405
+2010,Chemical,Medium,14,3.113523
+2010,Clearcut,High,2912,647.612784
+2010,Clearcut,Low,855,190.1472975
+2010,Clearcut,Medium,1092,242.854794
+2010,Development,High,25,5.5598625
+2010,Development,Low,621,138.1069845
+2010,Development,Medium,132,29.356074
+2010,Disease,Low,305,67.8303225
+2010,Harvest,High,781,173.6901045
+2010,Harvest,Low,1463,325.3631535
+2010,Harvest,Medium,366,81.396387
+2010,Herbicide,Low,691,153.6745995
+2010,Mastication,High,97,21.5722665
+2010,Mastication,Low,990,220.170555
+2010,Mastication,Medium,184,40.920588
+2010,Other Mechanical,High,1443,320.9152635
+2010,Other Mechanical,Low,23247,5170.004942
+2010,Other Mechanical,Medium,1184,263.315088
+2010,Prescribed Fire,High,440,97.85358
+2010,Prescribed Fire,Low,11290,2510.833905
+2010,Prescribed Fire,Medium,912,202.823784
+2010,Thinning,High,85,18.9035325
+2010,Thinning,Low,4954,1101.742353
+2010,Thinning,Medium,170,37.807065
+2010,Unknown,High,1036,230.400702
+2010,Unknown,Low,2954,656.953353
+2010,Unknown,Medium,1385,308.0163825
+2010,Wildfire,High,460,102.30147
+2010,Wildfire,Low,24935,5545.406858
+2010,Wildfire,Medium,2974,661.401243
+2010,Wildfire,Nodata/Non-processing mask,18,4.003101
+2010,Wildfire,Unburned/Low,12082,2686.970349
+2011,Chemical,Low,655,145.6683975
+2011,Chemical,Medium,2,0.444789
+2011,Clearcut,High,8,1.779156
+2011,Clearcut,Low,1463,325.3631535
+2011,Clearcut,Medium,256,56.932992
+2011,Development,Low,1147,255.0864915
+2011,Development,Medium,125,27.7993125
+2011,Harvest,High,9,2.0015505
+2011,Harvest,Low,4208,935.836056
+2011,Harvest,Medium,278,61.825671
+2011,Herbicide,Low,4655,1035.246398
+2011,Mastication,Low,372,82.730754
+2011,Mastication,Medium,11,2.4463395
+2011,Other Mechanical,High,191,42.4773495
+2011,Other Mechanical,Low,16824,3741.565068
+2011,Other Mechanical,Medium,2355,523.7390475
+2011,Prescribed Fire,High,41,9.1181745
+2011,Prescribed Fire,Low,19033,4232.834519
+2011,Prescribed Fire,Medium,579,128.7664155
+2011,Thinning,High,3,0.6671835
+2011,Thinning,Low,9479,2108.077466
+2011,Thinning,Medium,347,77.1708915
+2011,Unknown,High,88,19.570716
+2011,Unknown,Low,4034,897.139413
+2011,Unknown,Medium,990,220.170555
+2012,Clearcut,High,92,20.460294
+2012,Clearcut,Low,1221,271.5436845
+2012,Clearcut,Medium,873,194.1503985
+2012,Harvest,High,54,12.009303
+2012,Harvest,Low,2173,483.2632485
+2012,Harvest,Medium,416,92.516112
+2012,Other Mechanical,High,4,0.889578
+2012,Other Mechanical,Low,6232,1385.962524
+2012,Other Mechanical,Medium,230,51.150735
+2012,Prescribed Fire,High,484,107.638938
+2012,Prescribed Fire,Low,10674,2373.838893
+2012,Prescribed Fire,Medium,1552,345.156264
+2012,Thinning,High,5,1.1119725
+2012,Thinning,Low,6078,1351.713771
+2012,Thinning,Medium,168,37.362276
+2012,Unknown,High,425,94.5176625
+2012,Unknown,Low,6260,1392.18957
+2012,Unknown,Medium,1692,376.291494
+2012,Wildfire,Increased Green,32,7.116624
+2012,Wildfire,Low,2632,585.342324
+2012,Wildfire,Medium,7,1.5567615
+2012,Wildfire,Unburned/Low,1065,236.8501425
+2012,Wildland Fire,Low,29,6.4494405
+2013,Biological,Low,58,12.898881
+2013,Chemical,High,4,0.889578
+2013,Chemical,Low,1817,404.0908065
+2013,Chemical,Medium,120,26.68734
+2013,Clearcut,High,4,0.889578
+2013,Clearcut,Low,1597,355.1640165
+2013,Clearcut,Medium,252,56.043414
+2013,Development,Low,509,113.1988005
+2013,Development,Medium,3,0.6671835
+2013,Harvest,Low,656,145.890792
+2013,Herbicide,Low,1240,275.76918
+2013,Mastication,Low,509,113.1988005
+2013,Other Mechanical,High,265,58.9345425
+2013,Other Mechanical,Low,40466,8999.415837
+2013,Other Mechanical,Medium,1133,251.9729685
+2013,Prescribed Fire,High,21,4.6702845
+2013,Prescribed Fire,Low,24781,5511.158105
+2013,Prescribed Fire,Medium,464,103.191048
+2013,Thinning,Low,2215,492.6038175
+2013,Thinning,Medium,28,6.227046
+2013,Unknown,High,704,156.565728
+2013,Unknown,Low,2617,582.0064065
+2013,Unknown,Medium,1146,254.864097
+2013,Unknown/Fire Doubtful,High,30,6.671835
+2013,Unknown/Fire Doubtful,Low,203,45.1460835
+2013,Unknown/Fire Doubtful,Medium,70,15.567615
+2013,Unknown/Possibly Fire,High,5,1.1119725
+2013,Unknown/Possibly Fire,Low,110,24.463395
+2013,Unknown/Possibly Fire,Medium,30,6.671835
+2014,Chemical,High,28,6.227046
+2014,Chemical,Low,802,178.360389
+2014,Chemical,Medium,98,21.794661
+2014,Development,High,35,7.7838075
+2014,Development,Low,678,150.783471
+2014,Development,Medium,362,80.506809
+2014,Harvest,Low,25,5.5598625
+2014,Harvest,Medium,32,7.116624
+2014,Herbicide,Low,4103,912.4846335
+2014,Herbicide,Medium,1,0.2223945
+2014,Other Mechanical,High,100,22.23945
+2014,Other Mechanical,Low,16352,3636.594864
+2014,Other Mechanical,Medium,1630,362.503035
+2014,Prescribed Fire,High,17,3.7807065
+2014,Prescribed Fire,Low,9051,2012.89262
+2014,Prescribed Fire,Medium,487,108.3061215
+2014,Thinning,High,6,1.334367
+2014,Thinning,Low,1084,241.075638
+2014,Thinning,Medium,129,28.6888905
+2014,Unknown,High,76,16.901982
+2014,Unknown,Low,3274,728.119593
+2014,Unknown,Medium,400,88.9578
+2014,Unknown/Fire Doubtful,Low,90,20.015505
+2014,Unknown/Fire Doubtful,Medium,35,7.7838075
+2014,Wildfire,Increased Green,75,16.6795875
+2014,Wildfire,Low,13442,2989.426869
+2014,Wildfire,Medium,512,113.865984
+2014,Wildfire,Unburned/Low,3141,698.5411245
+2015,Clearcut,High,414,92.071323
+2015,Clearcut,Low,4082,907.814349
+2015,Clearcut,Medium,1077,239.5188765
+2015,Harvest,High,372,82.730754
+2015,Harvest,Low,3683,819.0789435
+2015,Harvest,Medium,2046,455.019147
+2015,NA,NA,4540421,1009764.658
+2015,Other Mechanical,High,449,99.8551305
+2015,Other Mechanical,Low,10062,2237.733459
+2015,Other Mechanical,Medium,715,159.0120675
+2015,Prescribed Fire,High,1849,411.2074305
+2015,Prescribed Fire,Low,18095,4024.228478
+2015,Prescribed Fire,Medium,2129,473.4778905
+2015,Thinning,Low,8126,1807.177707
+2015,Thinning,Medium,107,23.7962115
+2015,Unknown,High,773,171.9109485
+2015,Unknown,Low,3737,831.0882465
+2015,Unknown,Medium,935,207.9388575
+2015,Wildfire,Increased Green,2,0.444789
+2015,Wildfire,Low,14631,3253.85393
+2015,Wildfire,Medium,3879,862.6682655
+2015,Wildfire,Unburned/Low,1828,406.537146
+2015,Wildland Fire,Low,15,3.3359175
+2016,Clearcut,High,171,38.0294595
+2016,Clearcut,Low,2060,458.13267
+2016,Clearcut,Medium,262,58.267359
+2016,Development,Low,530,117.869085
+2016,Harvest,High,2,0.444789
+2016,Harvest,Low,2928,651.171096
+2016,Harvest,Medium,25,5.5598625
+2016,NA,NA,4554489,1012893.304
+2016,Other Mechanical,High,63,14.0108535
+2016,Other Mechanical,Low,11236,2498.824602
+2016,Other Mechanical,Medium,181,40.2534045
+2016,Prescribed Fire,High,28,6.227046
+2016,Prescribed Fire,Low,13786,3065.930577
+2016,Prescribed Fire,Medium,182,40.475799
+2016,Thinning,Low,8089,1798.949111
+2016,Thinning,Medium,9,2.0015505
+2016,Unknown,High,171,38.0294595
+2016,Unknown,Low,5492,1221.390594
+2016,Unknown,Medium,180,40.03101
+2016,Wildfire,Low,13825,3074.603963
+2016,Wildfire,Medium,2584,574.667388
+2016,Wildfire,Unburned/Low,3134,696.984363

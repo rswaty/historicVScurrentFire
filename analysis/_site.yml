@@ -8,7 +8,7 @@ navbar:
   - text: Huron-Manistee
     href: huronManistee.html
   - text: Okefenokee
-    href:  okSwamp.html
+    href: okSwamp.html
   - text: About
     href: about.html
   right:
