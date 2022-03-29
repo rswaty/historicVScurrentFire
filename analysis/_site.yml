@@ -22,4 +22,4 @@ output:
     theme: cosmo
     highlight: textmate
     includes:
-      in_header: analytics.html
+      in_header: analysis/analytics.html
